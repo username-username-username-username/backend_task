@@ -1,0 +1,348 @@
+{
+	"info": {
+		"_postman_id": "f089bc36-6b5a-4e4e-9426-9837ed746673",
+		"name": "Backend testing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login like an admin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"TestLogin\",\r\n    \"password\": \"TestPassword\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/authentication/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"authentication",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Attempt  to remove a user like an admin",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2xvZ2luIjoiVGVzdExvZ2luIiwidXNlcl9wd2RoYXNoIjoiN2JjZjlkODkyOThmMWJmYWUxNmZhMDJlZDZiNjE5MDhmZDJmYThkZTQ1ZGQ4ZTIxNTNhM2M0NzMwMDc2NTMyOCIsImV4cCI6MTY4Mjc0NzM2MX0.i7SjWIrnqLYpDrDYvQ4kfvGDX2Ay_9YC6niy9pSi3H0",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "Authorization",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"PlsRemoveME\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/services/remove_user",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"services",
+						"remove_user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login like an usual user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"PlsRemoveME\",\r\n    \"password\": \"my_super_password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/authentication/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"authentication",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login with the wrong password for an existing login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"PlsRemoveME\",\r\n    \"password\": \"wrong_password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/authentication/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"authentication",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login with a not existing login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"not_existing_login\",\r\n    \"password\": \"not_existing\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/authentication/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"authentication",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login without any input data",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/authentication/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"authentication",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Attempt  to remove a user like an usual user",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2xvZ2luIjoiUGxzUmVtb3ZlTUUiLCJ1c2VyX3B3ZGhhc2giOiJmZmQ5MDVlMjYyOTYzNTdkNzUwYThjMDQ5YzdjOGY4Nzc1Mzk5MDY3MGY4OTljYzEzNjljNDRmYzIyNmI3ZTg4IiwiZXhwIjoxNjgyNzQ3MjU4fQ.JUDShr5ENscnbAcrXtt7fpMkwclhy2Y-BVcwifc3Bfc",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "Authorization",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"PlsRemoveME\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/services/remove_user",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"services",
+						"remove_user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Attempt  to add a user like an admin",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2xvZ2luIjoiVGVzdExvZ2luIiwidXNlcl9wd2RoYXNoIjoiN2JjZjlkODkyOThmMWJmYWUxNmZhMDJlZDZiNjE5MDhmZDJmYThkZTQ1ZGQ4ZTIxNTNhM2M0NzMwMDc2NTMyOCIsImV4cCI6MTY4MjcwNDM5NX0.t1PLXAtiHSsyj42ZuSZYM7af5nIS9t-PiH2Kl7Iov7Q",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "Authorization",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"q2121eht345TTTq\",\r\n    \"password\": \"11111112345679\",\r\n    \"email\": \"\",\r\n    \"role\": \"user\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/services/add_user",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"services",
+						"add_user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Attempt  to add a user like an usual user",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2xvZ2luIjoiUGxzUmVtb3ZlTUUiLCJ1c2VyX3B3ZGhhc2giOiJmZmQ5MDVlMjYyOTYzNTdkNzUwYThjMDQ5YzdjOGY4Nzc1Mzk5MDY3MGY4OTljYzEzNjljNDRmYzIyNmI3ZTg4IiwiZXhwIjoxNjgyNjk1MDIwfQ.t44n30AMjriRq6AQS4e8JpA6xygy-2_9_XSQuiBA71M",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "Authorization",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"Test321\",\r\n    \"password\": \"12345678\",\r\n    \"email\": \"lol@lol.lol\",\r\n    \"role\": \"user\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/services/add_user",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"services",
+						"add_user"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
